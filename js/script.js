@@ -1,3 +1,5 @@
+'use strict'
+
 function main() {
   const title = prompt('Как называется ваш проект?')
   const screens = prompt(
@@ -16,9 +18,31 @@ function main() {
     fullPrice - fullPrice * (rollback / 100),
   )
 
+  const showTypeOF = function (variable) {
+    console.log(variable, typeof variable)
+  }
+
+  const getRollbackMessage = function (price) {
+    if (price >= 30000) {
+      return 'Даем скидку в 10%'
+    } else if (price >= 15000) {
+      return 'Даем скидку в 5%'
+    } else if (price >= 0) {
+      return 'Скидка не предусмотрена'
+    } else {
+      return 'Что то пошло не так'
+    }
+  }
+
+  showTypeOF(title)
+  showTypeOF(fullPrice)
+  showTypeOF(adaptive)
+
+  console.log(getRollbackMessage(fullPrice))
   console.log(typeof title)
   console.log(typeof fullPrice)
   console.log(typeof adaptive)
+
   console.log(screens.length)
   console.log('Стоимость верстки экранов ' + screenPrice + ' рублей')
   console.log('Стоимость разработки сайта ' + fullPrice + ' рублей')
@@ -46,16 +70,6 @@ function main() {
   console.log(
     'Стоимость за вычетом отката посреднику ' + servicePercentPrice + ' рублей',
   )
-
-  if (fullPrice >= 30000) {
-    console.log('Даем скидку в 10%')
-  } else if (fullPrice >= 15000) {
-    console.log('Даем скидку в 5%')
-  } else if (fullPrice >= 0) {
-    console.log('Скидка не предусмотрена')
-  } else {
-    console.log('Что то пошло не так')
-  }
 }
 
 main()
