@@ -14,7 +14,7 @@ function main() {
   let servicePercentPrice
 
   const isNumber = function (num) {
-    return !isNaN(parseFloat(num)) && isFinite(num)
+    return !isNaN(parseFloat(num)) && isFinite(num) && num.match(/^\d+$/)
   }
 
   const asking = function () {
